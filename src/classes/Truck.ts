@@ -4,6 +4,7 @@ import Motorbike from './Motorbike.js';
 import Car from './Car.js';
 import Wheel from './Wheel.js';
 import AbleToTow from '../interfaces/AbleToTow.js';
+import { stringify } from 'querystring';
 
 // TODO: The Truck class should extend the Vehicle class and should implement the AbleToTow interface
 class Truck extends Vehicle implements AbleToTow {
@@ -52,23 +53,42 @@ class Truck extends Vehicle implements AbleToTow {
     else {
       this.wheels = [new Wheel(), new Wheel(), new Wheel(),new Wheel()];
     }
+
+    
     
   }
 
-  
+  getMake(): string {
+
+    return this.make;
+  }
+  getModel(): string {
+    return this.model;
+  }
 
 
   // TODO: Implement the tow method from the AbleToTow interface
   tow(vehicle: Truck | Motorbike | Car): void {
     // TODO: Get the make and model of the vehicle if it exists
-    if (Truck!== undefined||Truck!==null){
-      
+    if (vehicle instanceof Truck!== undefined||vehicle instanceof Truck!==null||vehicle instanceof Motorbike!==undefined||
+      vehicle instanceof Motorbike!==null||vehicle instanceof Car!== undefined|| vehicle instanceof Car!==null){
+      this.make = this.getMake();
+      this.model= this.getModel();
     }
     
-    
     // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
-    // TODO: If it is, log that the vehicle is being towed
-    // TODO: If it is not, log that the vehicle is too heavy to be towed
+     if(this.weight <= this.towingCapacity)
+     {
+      // TODO: If it is, log that the vehicle is being towed
+      console.log(`Vehicle with Make: ${this.make}, Model: ${this.model} can be towed!`);
+
+     }
+     else{
+      // TODO: If it is not, log that the vehicle is too heavy to be towed
+      console.log(`Vehicle with Make: ${this.make}, Model: ${this.model} is too heavy to be towed!`);
+     }
+    
+    
   }
 
   // TODO: Override the printDetails method from the Vehicle class
