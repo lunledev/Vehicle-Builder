@@ -55,6 +55,13 @@ class Motorbike extends Vehicle{
     
   // TODO: Implement the wheelie method
     // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
+    wheeLie(vehicle: Motorbike): void {
+
+      if(vehicle instanceof Motorbike!==undefined||vehicle instanceof Motorbike!==null){
+
+        console.log(`Motorbike [${this.make}] [${this.model}] is doing a wheeLie!`);
+      }
+    }
 
   // TODO: Override the printDetails method from the Vehicle class
   // TODO: The method should call the printDetails method of the parent class
