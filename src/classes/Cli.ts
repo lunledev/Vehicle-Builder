@@ -74,6 +74,10 @@ class Cli {
           // create a truck
           this.createTruck();
         }
+        if (answers.vehicleType === 'Motorbike') {
+          // create a motorbike
+          this.createMotorbike();
+        }
       });
   }
 
