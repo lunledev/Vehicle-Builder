@@ -70,11 +70,11 @@ class Cli {
           this.createCar();
         }
         // TODO: add statements to create a truck or motorbike if the user selects the respective vehicle type
-        if (answers.vehicleType === 'Truck') {
+        else if (answers.vehicleType === 'Truck') {
           // create a truck
           this.createTruck();
         }
-        if (answers.vehicleType === 'Motorbike') {
+        else if (answers.vehicleType === 'Motorbike') {
           // create a motorbike
           this.createMotorbike();
         }
