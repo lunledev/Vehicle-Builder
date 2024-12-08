@@ -266,7 +266,11 @@ class Cli {
           answers.year,
           answers.weight,
           answers.topSpeed,
-          []
+          [answers.frontWheelDiameter,
+          answers.frontWheelBrand,
+          answers.rearWheelDiameter,
+          answers.rearWheelBrand]
+          
         );
 
         // TODO: push the motorbike to the vehicles array
