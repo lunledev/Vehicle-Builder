@@ -115,7 +115,7 @@ class Truck extends Vehicle implements AbleToTow {
 
     this.wheels.forEach((wheel, j = 1) => {
 
-      console.log(`Wheel${j}: ${wheel}.getDiameter} inch with a ${wheel}.getTireBrand} tire`);
+      console.log(`Wheel${j}: ${wheel.getDiameter} inch with a ${wheel.getTireBrand} tire`);
       j++;
 
     });
