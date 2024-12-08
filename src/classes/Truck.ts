@@ -104,15 +104,26 @@ class Truck extends Vehicle implements AbleToTow {
     console.log(`Weight: ${this.weight} lbs`);
     console.log(`Top Speed: ${this.topSpeed} mph`);
 
-    for (let i = 0;i < this.wheels.length; i++)
+    /*for (let i = 0;i < this.wheels.length; i++)
     {
-      for (let j = 1; j < this.wheels.indexOf(this.wheels[i]); j++) 
+      //for (let j = 1; j < this.wheels.indexOf(this.wheels[i]); j++) 
+      for (let j = 1; j < this.wheels.length; j++) 
       console.log(`Wheel${j}: ${this.wheels[i].getDiameter} inch with a ${this.wheels[i].getTireBrand} tire`);
     }
-    
+    */
 
-    console.log(`Towing Capacity: ${this.towingCapacity}`); 
-    
+
+    this.wheels.forEach((wheel, j = 1) => {
+
+      console.log(`Wheel${j}: ${wheel}.getDiameter} inch with a ${wheel}.getTireBrand} tire`);
+      j++;
+
+    });
+
+
+
+    console.log(`Towing Capacity: ${this.towingCapacity}`);
+
 
   }
 
