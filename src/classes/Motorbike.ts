@@ -59,7 +59,7 @@ class Motorbike extends Vehicle{
 
       if(vehicle instanceof Motorbike!==undefined||vehicle instanceof Motorbike!==null){
 
-        console.log(`Motorbike [${this.make}] [${this.model}] is doing a wheeLie!`);
+        console.log(`Motorbike [make: ${this.make}] [model: ${this.model}] is doing a wheeLie!`);
       }
     }
 
