@@ -270,10 +270,12 @@ class Cli {
           answers.frontWheelBrand,
           answers.rearWheelDiameter,
           answers.rearWheelBrand]
+
           
         );
 
         // TODO: push the motorbike to the vehicles array
+        this.vehicles.push(motorbike);
         // TODO: set the selectedVehicleVin to the vin of the motorbike
         // TODO: perform actions on the motorbike
       });
