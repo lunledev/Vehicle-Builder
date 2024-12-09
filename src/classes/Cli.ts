@@ -310,22 +310,15 @@ class Cli {
           console.log(`${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is a ${Truck.name} and cannot tow itself`);
           this.performActions();
 
-        } else {
-
+        } else if(answers.vehicleToTow instanceof Car || Motorbike)
+        {
 
           // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
-
-
-
-
-
+          Truck.prototype.tow(answers.vehicleToTow);
           this.performActions();
 
 
         }
-
-
-
 
 
       });
