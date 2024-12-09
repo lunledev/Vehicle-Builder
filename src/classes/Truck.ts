@@ -78,8 +78,8 @@ class Truck extends Vehicle implements AbleToTow {
 
       //this.make = this.getMake();
       //this.model = this.getModel();
-      vehicle.make += vehicle.make;
-      vehicle.model += vehicle.model;
+      vehicle.make = vehicle.make;
+      vehicle.model = vehicle.model;
 
 
     }

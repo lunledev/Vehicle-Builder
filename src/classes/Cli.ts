@@ -4,6 +4,7 @@ import Truck from "./Truck.js";
 import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
 import Wheel from "./Wheel.js";
+import Vehicle from "./Vehicle.js";
 
 // define the Cli class
 class Cli {
@@ -304,15 +305,20 @@ class Cli {
       ])
       .then((answers) => {
         // TODO: check if the selected vehicle is the truck
-        if (answers.vehicles instanceof Truck) {
+        if (answers.vehicleToTow instanceof Truck) {
           // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
-          console.log(`${answers.vehicle.value} is a truck and cannot tow itself`);
+          console.log(`${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is a ${Truck.name} and cannot tow itself`);
           this.performActions();
 
         } else {
 
+
           // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
-          answers.tow(`${answers.vehicle.value}`);
+
+
+
+
+
           this.performActions();
 
 
@@ -414,14 +420,13 @@ class Cli {
         //you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
         else if (answers.action === 'tow') {
           for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles instanceof Truck && this.vehicles[i].vin === this.selectedVehicleVin) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
               this.findVehicleToTow(this.vehicles);
               return;
             }
 
           }
         }
-
 
 
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
