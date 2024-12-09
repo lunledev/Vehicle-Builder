@@ -70,8 +70,12 @@ class Truck extends Vehicle implements AbleToTow {
   // TODO: Implement the tow method from the AbleToTow interface
   tow(vehicle: Truck | Motorbike | Car): void {
     // TODO: Get the make and model of the vehicle if it exists
-    if (vehicle instanceof Truck !== undefined || vehicle instanceof Truck !== null || vehicle instanceof Motorbike !== undefined ||
-      vehicle instanceof Motorbike !== null || vehicle instanceof Car !== undefined || vehicle instanceof Car !== null) {
+    //if (vehicle instanceof Truck !== undefined && vehicle instanceof Truck !== null || 
+    //vehicle instanceof Motorbike !== undefined && vehicle instanceof Motorbike !== null || 
+    //vehicle instanceof Car !== undefined && vehicle instanceof Car !== null) {
+    if ((vehicle instanceof Truck || vehicle instanceof Motorbike || vehicle instanceof Car)
+      && vehicle !== undefined && vehicle !== null) {
+
       this.make = this.getMake();
       this.model = this.getModel();
     }
