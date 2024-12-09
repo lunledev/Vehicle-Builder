@@ -58,14 +58,14 @@ class Truck extends Vehicle implements AbleToTow {
 
   }
 
-  getMake(): string {
+ // getMake(): string {
 
-    return this.make;
-  }
-  getModel(): string {
-    return this.model;
-  }
-
+ //   return this.make;
+ // }
+ // getModel(): string {
+  //  return this.model;
+  //}
+  
 
   // TODO: Implement the tow method from the AbleToTow interface
   tow(vehicle: Truck | Motorbike | Car): void {
@@ -76,19 +76,23 @@ class Truck extends Vehicle implements AbleToTow {
     if ((vehicle instanceof Truck || vehicle instanceof Motorbike || vehicle instanceof Car)
       && vehicle !== undefined && vehicle !== null) {
 
-      this.make = this.getMake();
-      this.model = this.getModel();
+      //this.make = this.getMake();
+      //this.model = this.getModel();
+      vehicle.make += vehicle.make;
+      vehicle.model += vehicle.model;
+
+
     }
 
     // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
-    if (this.weight <= this.towingCapacity) {
+    if ((vehicle.weight <= this.towingCapacity) {
       // TODO: If it is, log that the vehicle is being towed
-      console.log(`Vehicle with Make: ${this.make}, Model: ${this.model} can be towed!`);
+      console.log(`Vehicle with Make: ${vehicle.make}, Model: ${vehicle.model} can be towed!`);
 
     }
     else {
       // TODO: If it is not, log that the vehicle is too heavy to be towed
-      console.log(`Vehicle with Make: ${this.make}, Model: ${this.model} is too heavy to be towed!`);
+      console.log(`Vehicle with Make: ${vehicle.make}}, Model: ${vehicle.model} is too heavy to be towed!`);
     }
 
 
