@@ -79,7 +79,6 @@ class Motorbike extends Vehicle{
     
     this.wheels.forEach((wheel,j) => {
       console.log(`Wheel ${++j}: ${wheel.getDiameter} inch with a ${wheel.getTireBrand} tire`);
-      j++;  
     });  
     
 
