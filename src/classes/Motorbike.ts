@@ -55,11 +55,11 @@ class Motorbike extends Vehicle{
     
   // TODO: Implement the wheelie method
     // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
-    wheeLie(vehicle: Motorbike): void {
-
+    wheelie(vehicle: Motorbike): void {
+      
       if(vehicle instanceof Motorbike!==undefined||vehicle instanceof Motorbike!==null){
 
-        console.log(`Motorbike [make: ${this.make}] [model: ${this.model}] is doing a wheeLie!`);
+        console.log(`Motorbike [make: ${this.make}] [model: ${this.model}] is doing a wheelie!`);
       }
     }
 
