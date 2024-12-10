@@ -266,9 +266,9 @@ class Cli {
           answers.color,
           answers.make,
           answers.model,
-          answers.year,
-          answers.weight,
-          answers.topSpeed,
+          parseInt(answers.year),
+          parseInt(answers.weight),
+          parseInt(answers.topSpeed),
           [answers.frontWheelDiameter,
           answers.frontWheelBrand,
           answers.rearWheelDiameter,
@@ -288,6 +288,8 @@ class Cli {
 
   // method to find a vehicle to tow
   // TODO: add a parameter to accept a truck object
+  //findVehicleToTow(truck: Truck): void {
+ // findVehicleToTow(vehicles: (Car | Truck | Motorbike)[]): void {
   findVehicleToTow(vehicles: (Car | Truck | Motorbike)[]): void {
     inquirer
       .prompt([
@@ -310,14 +312,14 @@ class Cli {
           console.log(`${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is a ${Truck.name} and cannot tow itself`);
           this.performActions();
 
-        } else if(answers.vehicleToTow instanceof Car || Motorbike)
-        {
+        } else if (answers.vehicleToTow instanceof Car || Motorbike) {
 
           // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
+          //truck.tow(answers.vehicleToTow);
           Truck.prototype.tow(answers.vehicleToTow);
           this.performActions();
 
-
+          
         }
 
 
@@ -412,8 +414,10 @@ class Cli {
         // to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, 
         //you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
         else if (answers.action === 'tow') {
+          let truck: Truck | undefined;
+
           for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin&& this.vehicles[i] instanceof Truck) {
               this.findVehicleToTow(this.vehicles);
               return;
             }
