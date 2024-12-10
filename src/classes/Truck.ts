@@ -45,7 +45,7 @@ class Truck extends Vehicle implements AbleToTow {
     this.year = year;
     this.weight = weight;
     this.topSpeed = topSpeed;
-    this.towingCapacity = towingCapacity;
+   
     // TODO: The constructor should check if the wheels array has 4 elements and create 4 new default Wheel objects if it does not
     if (wheels.length === 4) {
       this.wheels = wheels;
@@ -54,47 +54,53 @@ class Truck extends Vehicle implements AbleToTow {
       this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
     }
 
+    this.towingCapacity = towingCapacity;
+
+   
 
 
   }
+   
+  // getMake(): string {
 
- // getMake(): string {
-
- //   return this.make;
- // }
- // getModel(): string {
+  //   return this.make;
+  // }
+  // getModel(): string {
   //  return this.model;
   //}
-  
+
 
   // TODO: Implement the tow method from the AbleToTow interface
-  tow(vehicle: Truck | Motorbike | Car): void {
+  tow(vehicle: Truck | Motorbike | Car): void { 
     // TODO: Get the make and model of the vehicle if it exists
     //if (vehicle instanceof Truck !== undefined && vehicle instanceof Truck !== null || 
     //vehicle instanceof Motorbike !== undefined && vehicle instanceof Motorbike !== null || 
     //vehicle instanceof Car !== undefined && vehicle instanceof Car !== null) {
-    if ((vehicle instanceof Truck || vehicle instanceof Motorbike || vehicle instanceof Car)
+    if ((vehicle instanceof Truck||Motorbike || Car)
       && vehicle !== undefined && vehicle !== null) {
 
       //this.make = this.getMake();
       //this.model = this.getModel();
       vehicle.make = vehicle.make;
       vehicle.model = vehicle.model;
-
-
+    
+      
+  
     }
-
+    console.log("testA: ", "vehicles weight: "+ vehicle.weight,  " and truck towing capacity: " + this.towingCapacity);
     // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
     if (vehicle.weight <= this.towingCapacity) {
       // TODO: If it is, log that the vehicle is being towed
       console.log(`Vehicle with Make: ${vehicle.make}, Model: ${vehicle.model} can be towed!`);
 
     }
-    else {
+    else{
       // TODO: If it is not, log that the vehicle is too heavy to be towed
       console.log(`Vehicle with Make: ${vehicle.make}, Model: ${vehicle.model} is too heavy to be towed!`);
     }
 
+
+     
 
   }
 

@@ -289,8 +289,9 @@ class Cli {
   // method to find a vehicle to tow
   // TODO: add a parameter to accept a truck object
   //findVehicleToTow(truck: Truck): void {
- // findVehicleToTow(vehicles: (Car | Truck | Motorbike)[]): void {
-  findVehicleToTow(vehicles: (Car | Truck | Motorbike)[]): void {
+  //findVehicleToTow(vehicles: (Car | Truck | Motorbike)[]): void {
+    //findVehicleToTow(truck: Truck): void {
+    findVehicleToTow(truck: Truck): void {
     inquirer
       .prompt([
         {
@@ -307,19 +308,20 @@ class Cli {
       ])
       .then((answers) => {
         // TODO: check if the selected vehicle is the truck
-        if (answers.vehicleToTow instanceof Truck) {
+        if (answers.vehicleToTow instanceof Truck){
           // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
           console.log(`${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is a ${Truck.name} and cannot tow itself`);
           this.performActions();
 
-        } else if (answers.vehicleToTow instanceof Car || Motorbike) {
+        } else if(answers.vehicleoTow instanceof Truck||Car) {
+
 
           // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
-          //truck.tow(answers.vehicleToTow);
-          Truck.prototype.tow(answers.vehicleToTow);
+      
+          truck.tow(answers.vehicleToTow);
           this.performActions();
 
-          
+
         }
 
 
@@ -414,11 +416,14 @@ class Cli {
         // to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, 
         //you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
         else if (answers.action === 'tow') {
-          let truck: Truck | undefined;
+          //let truck: Truck | undefined;
 
           for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles[i].vin === this.selectedVehicleVin&& this.vehicles[i] instanceof Truck) {
-              this.findVehicleToTow(this.vehicles);
+            //if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Truck) {
+              if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Truck) {
+              // if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              this.findVehicleToTow(this.vehicles[i] as Truck||Car||Motorbike);
+              //this.findVehicleToTow();
               return;
             }
 
