@@ -291,7 +291,8 @@ class Cli {
   //findVehicleToTow(truck: Truck): void {
   //findVehicleToTow(vehicles: (Car | Truck | Motorbike)[]): void {
     //findVehicleToTow(truck: Truck): void {
-    findVehicleToTow(truck: Truck): void {
+   // findVehicleToTow(truck: Truck): void {
+   findVehicleToTow(truck: Truck): void {
     inquirer
       .prompt([
         {
@@ -308,12 +309,13 @@ class Cli {
       ])
       .then((answers) => {
         // TODO: check if the selected vehicle is the truck
+           
         if (answers.vehicleToTow instanceof Truck){
           // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
           console.log(`${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is a ${Truck.name} and cannot tow itself`);
           this.performActions();
 
-        } else if(answers.vehicleoTow instanceof Truck||Car) {
+        } else if(answers.vehicleoTow instanceof Motorbike||Car) {
 
 
           // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
@@ -434,12 +436,19 @@ class Cli {
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
         else if (answers.action === 'wheelie') {
           for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles instanceof Motorbike && this.vehicles[i].vin === this.selectedVehicleVin) {
-              this.vehicles.wheelie(this.vehicles);
+            if (this.vehicles[i] instanceof Motorbike && this.vehicles[i].vin === this.selectedVehicleVin) {
+              //let motorbike = this.vehicles[i] as Motorbike;
+                //motorbike.wheelie();
+                (<Motorbike>this.vehicles[i]).wheelie();
+                (this.vehicles[i] as Motorbike).wheelie(); 
+
+                 
+                
+              
             }
 
           }
-
+         
         }
 
 
