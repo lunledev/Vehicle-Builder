@@ -439,7 +439,7 @@ class Cli {
             if (this.vehicles[i] instanceof Motorbike && this.vehicles[i].vin === this.selectedVehicleVin) {
               //let motorbike = this.vehicles[i] as Motorbike;
                 //motorbike.wheelie();
-                (<Motorbike>this.vehicles[i]).wheelie();
+                //(<Motorbike>this.vehicles[i]).wheelie();
                 (this.vehicles[i] as Motorbike).wheelie(); 
 
                  
