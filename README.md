@@ -7,7 +7,8 @@ As a developer I am updating an existing application to include additional vehic
 
 ## Installation
 
-
-
+npm i and npm start
 
 ## Usage
+
+Link to video demonstration: [Vehicle-Builder Demo]()
