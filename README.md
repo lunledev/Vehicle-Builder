@@ -11,4 +11,6 @@ npm i
 
 ## Usage
 
-Link to video demonstration: [Vehicle-Builder Demo]()
+npm start to run application
+
+Link to video demonstration: [Vehicle-Builder Demo](https://drive.google.com/file/d/1v5RRUIXY-l8nv4OZWiORGMnTkGM6CfVu/view?usp=sharing)
