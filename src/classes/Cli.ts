@@ -290,9 +290,9 @@ class Cli {
   // TODO: add a parameter to accept a truck object
   //findVehicleToTow(truck: Truck): void {
   //findVehicleToTow(vehicles: (Car | Truck | Motorbike)[]): void {
-    //findVehicleToTow(truck: Truck): void {
-   // findVehicleToTow(truck: Truck): void {
-   findVehicleToTow(truck: Truck): void {
+  //findVehicleToTow(truck: Truck): void {
+  // findVehicleToTow(truck: Truck): void {
+  findVehicleToTow(truck: Truck): void {
     inquirer
       .prompt([
         {
@@ -309,17 +309,17 @@ class Cli {
       ])
       .then((answers) => {
         // TODO: check if the selected vehicle is the truck
-           
-        if (answers.vehicleToTow instanceof Truck){
+
+        if (answers.vehicleToTow instanceof Truck) {
           // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
           console.log(`${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is a ${Truck.name} and cannot tow itself`);
           this.performActions();
 
-        } else if(answers.vehicleoTow instanceof Motorbike||Car) {
+        } else if (answers.vehicleoTow instanceof Motorbike || Car) {
 
 
           // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
-      
+
           truck.tow(answers.vehicleToTow);
           this.performActions();
 
@@ -422,11 +422,18 @@ class Cli {
 
           for (let i = 0; i < this.vehicles.length; i++) {
             //if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Truck) {
-              if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Truck) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Truck) {  
               // if (this.vehicles[i].vin === this.selectedVehicleVin) {
-              this.findVehicleToTow(this.vehicles[i] as Truck||Car||Motorbike);
+              this.findVehicleToTow(this.vehicles[i] as Truck || Car || Motorbike);
               //this.findVehicleToTow();
               return;
+            }
+            if (this.vehicles[i] instanceof Motorbike && this.vehicles[i].vin === this.selectedVehicleVin) {
+              console.log(`${Motorbike.name} with make: ${this.vehicles[i].make} model: ${this.vehicles[i].model} does not have this tow action`);
+            }
+            if (this.vehicles[i] instanceof Car && this.vehicles[i].vin === this.selectedVehicleVin) {
+
+              console.log(`${Car.name} with make: ${this.vehicles[i].make} model: ${this.vehicles[i].model} does not have this tow action`);
             }
 
           }
@@ -438,17 +445,21 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i] instanceof Motorbike && this.vehicles[i].vin === this.selectedVehicleVin) {
               //let motorbike = this.vehicles[i] as Motorbike;
-                //motorbike.wheelie();
-                //(<Motorbike>this.vehicles[i]).wheelie();
-                (this.vehicles[i] as Motorbike).wheelie(); 
+              //motorbike.wheelie();
+              //(<Motorbike>this.vehicles[i]).wheelie();
+              (this.vehicles[i] as Motorbike).wheelie();
+            }
+            if (this.vehicles[i] instanceof Truck && this.vehicles[i].vin === this.selectedVehicleVin) {
 
-                 
-                
-              
+              console.log(`${Truck.name} with make: ${this.vehicles[i].make} model: ${this.vehicles[i].model} does not have this wheelie action`);
+            }
+            if (this.vehicles[i] instanceof Car && this.vehicles[i].vin === this.selectedVehicleVin) {
+
+              console.log(`${Car.name} with make: ${this.vehicles[i].make} model: ${this.vehicles[i].model} does not have this wheelie action`);
             }
 
           }
-         
+
         }
 
 
