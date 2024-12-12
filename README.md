@@ -7,10 +7,10 @@ As a developer I am updating an existing application to include additional vehic
 
 ## Installation
 
-npm i 
+npm i and npm start
 
 ## Usage
 
-npm start to run application
+use npm start to run application again after initial setup.
 
 Link to video demonstration: [Vehicle-Builder Demo](https://drive.google.com/file/d/1v5RRUIXY-l8nv4OZWiORGMnTkGM6CfVu/view?usp=sharing)
